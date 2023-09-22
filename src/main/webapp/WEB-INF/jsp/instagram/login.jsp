@@ -68,7 +68,28 @@
 					return ;
 				}
 				
-				
+				$.ajax({
+					type:"post"
+					, url:"/user/login"
+					, data:{"loginId":loginId, "password":password}
+					, success:function(data) {
+
+						if(data.result == "success") {
+							location.href = "/post/list-view";
+							
+						} else {
+							
+							alert("아이디, 비밀번호 확인해주세요!");
+						}
+						
+					}
+					, error:function() {
+						alert("로그인 에러!");
+					}
+					
+					
+					
+				});
 				
 				
 				
