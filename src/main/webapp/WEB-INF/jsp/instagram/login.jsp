@@ -24,10 +24,12 @@
 
 						<div >
 							<h1>penguin gram</h1>
-							<input type="text" placeholder="아이디" class="form-control mt-4" id="loginInput">
-							<input type="password" placeholder="비밀번호" class="form-control mt-4" id="passwordInput">
-							<button type="button" class="btn btn-secondary btn-block mt-4" id="loginBtn">로그인</button>
-				
+							<form id="loginForm">
+								<input type="text" placeholder="아이디" class="form-control mt-4" id="loginInput">
+								<input type="password" placeholder="비밀번호" class="form-control mt-4" id="passwordInput">
+								<button type="submit" class="btn btn-secondary btn-block mt-4" id="loginBtn">로그인</button>
+							</form>
+					
 							<div class= "d-flex justify-content-center mt-3">
 								<a href="/user/join-view" class="text-center">회원가입</a>
 							</div>
@@ -53,7 +55,14 @@
 	
 	<script>
 		$(document).ready(function () {
-			$("#loginBtn").on("click", function () {
+			
+			
+		 // $("#loginBtn").on("click", function () {
+			$("#loginForm").on("submit", function (e) {
+				
+				//form 태그가 가진 페이지 이동 기능을 막자
+				e.preventDefault();
+				
 				let loginId = $("#loginInput").val();
 				let password = $("#passwordInput").val();
 				
@@ -75,11 +84,11 @@
 					, success:function(data) {
 
 						if(data.result == "success") {
-							location.href = "/post/list-view";
+							location.href = "/post/timeline-view";
 							
 						} else {
 							
-							alert("아이디, 비밀번호 확인해주세요!");
+							alert("아이디, 비밀번호가 일치하지 않습니다!");
 						}
 						
 					}

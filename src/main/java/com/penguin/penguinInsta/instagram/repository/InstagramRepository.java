@@ -14,7 +14,7 @@ public interface InstagramRepository extends JpaRepository<User, Integer> {
 	public int countByLoginId(String loginId);
 	
 	
-	// WHERE `loginId` = ?? AND `password` == ??
+	// WHERE `loginId` = ?? AND `password` == ?? 하나일때는 옵션녈 사용
 	public Optional<User> findByLoginIdAndPassword(String loginId, String password);
 	
 }

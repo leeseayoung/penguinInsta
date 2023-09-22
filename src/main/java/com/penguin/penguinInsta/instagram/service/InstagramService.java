@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import com.penguin.penguinInsta.common.EncryptUtils;
 import com.penguin.penguinInsta.instagram.domain.User;
 import com.penguin.penguinInsta.instagram.repository.InstagramRepository;
 
@@ -19,8 +19,11 @@ public class InstagramService {
 	
 	public User getUser(String loginId, String password) {
 		
+		//암호화
+		String encryptPassword = EncryptUtils.md5(password);
 		
-		String encryptPassword = com.penguin.penguinInsta.common.EncryptUtils.md5(password);
+		//밑에 이렇게도 사용 가능!
+		//User user = instagramRepository.findByLoginIdAndPassword(loginId, encryptPassword).orElse(null);
 		
 		Optional<User> optionalUser = instagramRepository.findByLoginIdAndPassword(loginId, encryptPassword);
 		User user = optionalUser.orElse(null);

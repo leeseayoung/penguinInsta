@@ -33,6 +33,7 @@ public class lnstagramRestController {
 	public Map<String, String> login(
 			@RequestParam("loginId") String loginId
 			, @RequestParam("password") String password
+			// HttpSession session 
 			, HttpServletRequest request) {
 		
 		User user = instagramService.getUser(loginId, password);
@@ -50,6 +51,7 @@ public class lnstagramRestController {
 			resultMap.put("result", "success");
 			
 		} else {
+			
 			resultMap.put("result", "fail");
 			
 		}
