@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+#wrap {
+	width: 1200px;
+	height: 900px;
+	margin: 0 auto;
+	
+}
+
+#h1 {
+	width: 300px;
+	height: 150px;
+	background-color:azure;
+}
+
+#h2 {
+	width: 600px;
+	height: 150px;
+	background-color:beige;
+}
+#h3 {
+	width: 300px;
+	height: 150px;
+	background-color:gainsboro;
+}
+
+footer {
+	height: 200px;
+	background-color:honeydew;
+	
+	
+}
