@@ -1,7 +1,13 @@
 package com.penguin.penguinInsta.mamo.repository;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import com.penguin.penguinInsta.mamo.domain.Post;
+
+
 
 @Repository
 public interface PostRepository {
@@ -12,4 +18,7 @@ public interface PostRepository {
 			, @Param("content") String content);
 	
 	
+	
+	
+	public List<Post> selectPostList(@Param("userId")int userId);
 }

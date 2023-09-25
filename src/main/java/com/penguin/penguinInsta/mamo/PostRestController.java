@@ -21,6 +21,7 @@ public class PostRestController {
 	@Autowired
 	private PostService postService;
 	
+	
 	@PostMapping("/create")
 	public Map<String, String> createMemo(
 			@RequestParam("title") String title
