@@ -28,6 +28,7 @@ public class PostRestController {
 			, @RequestParam("content") String content
 			, HttpSession session) {
 		
+					//다운 캐스팅
 		int userId = (Integer)session.getAttribute("userId");
 		
 		int count = postService.addPost(userId, title, content);
@@ -42,5 +43,11 @@ public class PostRestController {
 		
 		return resultMap;
 	}
+	
+	
+
+	
+	
+	
 	
 }

@@ -33,7 +33,7 @@
 					<button type="button" class="btn btn-secondary" id="saveBtn">저장</button>
 				</div>
 				
-			</div>
+			</div>	
 		</section>
 	
 		<c:import url="/WEB-INF/jsp/penguinInclude/footer.jsp" />
@@ -64,14 +64,15 @@
 				alert("내용을 입력하세요");
 				return ;
 			}
-	
+			//alert(title)
+			
 			$.ajax({
 				type:"post"
 				, url:"/post/create"
 				, data:{"title": title, "content":content}
 			 	, success:function(data) {
 					if(data.result == "success") {
-						location.href = "/post/list-view";
+						location.href = "/post/timeline-view";
 					} else {
 						alert("메모 작성 실패");
 					}

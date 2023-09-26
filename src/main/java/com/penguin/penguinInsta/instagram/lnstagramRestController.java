@@ -1,4 +1,4 @@
-package com.penguin.penguinInsta;
+package com.penguin.penguinInsta.instagram;
 
 import java.util.HashMap;
 import java.util.Map;

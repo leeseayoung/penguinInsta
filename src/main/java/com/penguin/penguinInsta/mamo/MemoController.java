@@ -28,6 +28,19 @@ public class MemoController {
 	}
 	
 	
+	@GetMapping("/postlist-view")
+	public String postList() {
+		return "post/postlist";
+	}
+	
+	
+	@GetMapping("/timeline-view") 
+	public String postTimeline() {
+		return "post/timeline";
+	}
+	
+	
+	
 	
 	@GetMapping("/list-view")
 	public String postList(Model model

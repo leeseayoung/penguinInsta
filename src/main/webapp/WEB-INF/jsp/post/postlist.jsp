@@ -30,14 +30,7 @@
 				</thead>
 				<tbody>
 					<%--여기 오류  --%>
-					<c:forEach var="post" items="${postList}">
-						<tr>
-							<td>${post.id}</td>
-							<td>${post.title}</td>
-							
-							<td><fmt:formatDate value="${post.createdAt}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
-						</tr>
-					</c:forEach>
+					
 					
 				</tbody>
 			

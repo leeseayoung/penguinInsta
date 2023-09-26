@@ -84,7 +84,7 @@
 					, success:function(data) {
 
 						if(data.result == "success") {
-							location.href = "/post/timeline-view";
+							location.href = "/post/newpost-view";
 							
 						} else {
 							

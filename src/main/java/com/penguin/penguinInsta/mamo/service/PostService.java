@@ -23,6 +23,8 @@ public class PostService {
 	}
 	
 	
+	
+	
 	public List<Post> getPostList(int userId) {
 		
 		return postRepository.selectPostList(userId);

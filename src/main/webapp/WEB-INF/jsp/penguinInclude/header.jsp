@@ -9,7 +9,7 @@
 			
 			</div>
 			
-			<div id="h2" class="col-6 pt-4">
+			<div id="h2" class="col-6 pt-5">
 			<h1 class="text-center">penguinInsta</h1></div>
 			
 			<div id="h3" class="col-3 d-flex justify-content-center align-items-center pb-1">
