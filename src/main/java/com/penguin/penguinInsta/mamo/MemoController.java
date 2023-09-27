@@ -28,10 +28,6 @@ public class MemoController {
 	}
 	
 	
-	@GetMapping("/postlist-view")
-	public String postList() {
-		return "post/postlist";
-	}
 	
 	
 	@GetMapping("/timeline-view") 
@@ -42,19 +38,7 @@ public class MemoController {
 	
 	
 	
-	@GetMapping("/list-view")
-	public String postList(Model model
-			, HttpSession session) {
-		
-		int userId = (Integer)session.getAttribute("userId");
-		
-		List<Post> postList = postService.getPostList(userId);
-		
-		model.addAttribute("postList", postList);
-		
-		
-		return "post/list";
-	}
+
 	
 	
 	
