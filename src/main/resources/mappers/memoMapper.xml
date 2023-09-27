@@ -28,6 +28,11 @@
   	
   	</insert>
   
+
+  
+  
+  
+  
   	<select id="selectPostList"
   	resultType="com.penguin.penguinInsta.mamo.domain.Post">
  			 SELECT

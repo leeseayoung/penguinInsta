@@ -17,12 +17,12 @@ public interface PostRepository {
 			@Param("userId")int userId
 			, @Param("content") String content
 			, @Param("imagePath")String imagePath);
-	
-	
-	
-	
-	
+
 
 	public List<Post> selectPostList();
 
+	
+	
+	
+	
 }

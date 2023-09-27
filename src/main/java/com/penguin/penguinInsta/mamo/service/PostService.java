@@ -25,6 +25,16 @@ public class PostService {
 	@Autowired
 	private InstagramService instagramService;
 	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
 	public int addPost(int userId, String content, MultipartFile file) {
 		
 		String imagePath = FileManager.saveFile(userId, file);
