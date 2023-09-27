@@ -8,14 +8,14 @@ public class Post {
 	
 	  private int id;
 	  private int userId;
-	  private String title;
 	  private String content;
 	  private String imagePath;
 	  private Date createdAt;
 	  private Date updatedAt;
 	
 	  
-	  public int getId() {
+	
+	 public int getId() {
 		return id;
 	}
 	public void setId(int id) {
@@ -26,12 +26,6 @@ public class Post {
 	}
 	public void setUserId(int userId) {
 		this.userId = userId;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
 	}
 	public String getContent() {
 		return content;
@@ -57,5 +51,8 @@ public class Post {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	
+	  
+	
 
 }

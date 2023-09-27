@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.penguin.penguinInsta.mamo.domain.Post;
 import com.penguin.penguinInsta.mamo.repository.PostRepository;
@@ -24,13 +25,18 @@ public class PostService {
 	
 	
 	
-	
-	public List<Post> getPostList(int userId) {
+	// 이거
+	public List<Post> getPostList() {
 		
-		return postRepository.selectPostList(userId);
+		return postRepository.selectPostList();
 		
 	}
 
+	
+	
+	
+	
+	
 	
 	
 	

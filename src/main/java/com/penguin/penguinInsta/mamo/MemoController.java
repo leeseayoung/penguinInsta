@@ -2,8 +2,6 @@ package com.penguin.penguinInsta.mamo;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,26 +33,18 @@ public class MemoController {
 	
 	
 	@GetMapping("/timeline-view") 
-	public String postTimeline() {
+	public String postTimeline(Model model) {
+		
+		List<Post> postList = postService.getPostList();
+		
+		model.addAttribute("postList", postList);
 		return "post/timeline";
 	}
 	
 	
 	
 	
-	@GetMapping("/list-view")
-	public String postList(Model model
-			, HttpSession session) {
-		
-		int userId = (Integer)session.getAttribute("userId");
-		
-		List<Post> postList = postService.getPostList(userId);
-		
-		model.addAttribute("postList", postList);
-		
-		
-		return "post/list";
-	}
+
 	
 	
 	

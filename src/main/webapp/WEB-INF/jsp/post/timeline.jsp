@@ -36,17 +36,17 @@
 					
 					<!-- 카드 리스트 -->
 					<div class="card-list pt-2">
-					
+						<c:forEach var="post" items="${postList}">
 						<!-- 카드 -->
 						<div class="card">
 							<div class="d-flex justify-content-between p-2">
-								<div>hagulu</div>
+								<div>${post.userId }</div>
 								<i class="bi bi-three-dots-vertical"></i>
 							
 							</div>
 							
 							<div>
-								<img width="100%" src="https://cdn.pixabay.com/photo/2023/04/05/16/40/bird-7901920_1280.jpg">
+								<img width="100%" src="${post.imagePath}">
 							</div>
 							<div class="p-2">
 								<i class="bi bi-heart"></i>
@@ -54,7 +54,7 @@
 							</div>
 						
 							<div class="p-2">
-								<b>tnfusrltk12</b> 새가 귀여워사 올려요
+								<b>${post.userId}</b> ${post.content}
 							</div>
 							
 							
@@ -74,6 +74,7 @@
 				
 						</div>
 						<!-- /카드 -->
+						</c:forEach>
 					</div>
 					<!-- /카드 리스트 -->
 				
@@ -112,6 +113,37 @@
 					alert("제목을 입력하세요");
 					return ;
 				}
+				
+				
+				let formData = new ForData();
+				formData.append("content", content);
+				formData.append("imageFile", file.files[0]);
+				
+				
+				%.ajax({
+					type:"post"
+					, url:"/post/create"
+					, data:formData
+					, enctype:"multipart/form-data"  // 파일 업로드 필수 옵션
+					, processData:false  // 파일 업로드 필수 옵션
+					, contentType:false   // 파일 업로드 필수 옵션
+					, success:function(data) {
+						
+						if(data.result == "success") {
+							location.reload();
+						} else {
+							alert("글쓰기 실패");
+						}
+						
+						}
+						
+					}
+					, error:function() {
+					alert("메모 작성 에러");
+					}
+						
+				});
+				
 				
 			});
 			

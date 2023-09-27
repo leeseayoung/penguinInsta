@@ -21,5 +21,5 @@ public interface PostRepository {
 	
 	
 	
-	public List<Post> selectPostList(@Param("userId")int userId);
+	public List<Post> selectPostList();
 }
