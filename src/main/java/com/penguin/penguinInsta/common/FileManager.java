@@ -10,9 +10,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class FileManager {
 
+
 												//"D:\\LeeProject\\Memo\\uplod\\instagram"
 	// 상수(변하지 않은수) 모두 대문자					//D:\Leeseayoung\springProject\업로드\penguininsta
 	public final static String FILE_UPLOAD_PATH = "D:\\Leeseayoung\\springProject\\uplod\\penguininsta";
+
+	
+
 	
 	
 	//file을 특정 디렉토리(폴더)에 저장하고,

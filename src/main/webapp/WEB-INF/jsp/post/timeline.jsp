@@ -23,12 +23,12 @@
 				<!-- 타임라인 -->
 				<div class="timeline col-6">
 					<!-- 입력 상자 -->
-					<div class="input-box border reounded mt-4">
+					<div class="input-box border rounded mt-4">
 						
-						<textarea class="from-control border-0" rows="4" id="textareaInput"></textarea>
-						<div class="d-flex justify-content-between">
+						<textarea class="from-control border-0" rows="4" id="contentInput"></textarea>
+						<div class="d-flex justify-content-between p-2">
 							<input type="file" id="fileInput">
-							<button type="button" class="btn btn-info" id="saveBtn">입력</button>
+							<button type="button" class="btn btn-info btn-sm" id="addBtn">입력</button>
 						</div>
 					
 					</div>
@@ -65,7 +65,7 @@
 									<div class="pl-2"><b>asd123</b> 새가!</div>
 								<div class="d-flex">
 									<input type="text" class="form-control" id="textInput">
-									<button type="button" class="btn btn-info" id="">게시</button>
+									<button type="button" class="btn btn-info" >게시</button>
 								</div>
 								
 								
@@ -98,22 +98,19 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	
 	<script>
-	
-	
 		$(document).ready(function() {
-			$(#"saveBtn").on("click", function() {
+			$("#addBtn").on("click", function() {
+				
+				let content = $("#contentInput").val();
+				let file = $("#fileInput")[0];
 				
 				
-				
-				let textarea = $("#textareaInput").val();
-				// 파일에 대한 유효성 검사
-				
-				
-				if(textarea= "") {
-					alert("제목을 입력하세요");
+				if(content= "") {
+					alert("내용을 입력하세요");
 					return ;
 				}
 				
+
 				
 				let formData = new ForData();
 				formData.append("content", content);
@@ -143,6 +140,13 @@
 					}
 						
 				});
+
+				// 파일에 대한 유효성 검사
+				if(file.files.length = 0) {
+					alert("파일을 선택해 주세요");
+					return ;
+				}
+
 				
 				
 			});
@@ -150,6 +154,8 @@
 			
 			
 		});
+	
+		
 		
 	
 	
