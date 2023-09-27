@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.penguin.penguinInsta.mamo.domain.Post;
+import com.penguin.penguinInsta.mamo.dto.PostDetail;
 import com.penguin.penguinInsta.mamo.service.PostService;
 @RequestMapping("/post")
 @Controller
@@ -31,7 +31,7 @@ public class MemoController {
 	@GetMapping("/timeline-view") 
 	public String postTimeline(Model model) {
 		
-		List<Post> postList = postService.getPostList();
+		List<PostDetail> postList = postService.getPostList();
 		
 		model.addAttribute("postList", postList);
 		return "post/timeline";

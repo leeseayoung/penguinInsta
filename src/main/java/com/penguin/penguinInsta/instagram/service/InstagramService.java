@@ -16,6 +16,29 @@ public class InstagramService {
 	private InstagramRepository instagramRepository;
 	
 	
+	public User getUserById(int id) {
+		
+		User user = instagramRepository.findById(id).orElse(null);
+		return user;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public User getUser(String loginId, String password) {
 		

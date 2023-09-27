@@ -40,7 +40,7 @@
 						<!-- 카드 -->
 						<div class="card">
 							<div class="d-flex justify-content-between p-2">
-								<div>${post.userId }</div>
+								<div>${post.loginId}</div>
 								<i class="bi bi-three-dots-vertical"></i>
 							
 							</div>
@@ -54,7 +54,7 @@
 							</div>
 						
 							<div class="p-2">
-								<b>${post.userId}</b> ${post.content}
+								<b>${post.loginId}</b> ${post.content}
 							</div>
 							
 							
@@ -100,24 +100,28 @@
 	<script>
 		$(document).ready(function() {
 			$("#addBtn").on("click", function() {
-				
 				let content = $("#contentInput").val();
 				let file = $("#fileInput")[0];
 				
 				
-				if(content= "") {
+				if(content == "") {
 					alert("내용을 입력하세요");
 					return ;
 				}
 				
-
+				// 파일에 대한 유효성 검사
+				if(file.files.length == 0) {
+					alert("파일을 선택해 주세요");
+					return ;
+				}
 				
-				let formData = new ForData();
+
+				let formData = new FormData();
 				formData.append("content", content);
 				formData.append("imageFile", file.files[0]);
 				
 				
-				%.ajax({
+				$.ajax({
 					type:"post"
 					, url:"/post/create"
 					, data:formData
@@ -125,27 +129,26 @@
 					, processData:false  // 파일 업로드 필수 옵션
 					, contentType:false   // 파일 업로드 필수 옵션
 					, success:function(data) {
-						
 						if(data.result == "success") {
 							location.reload();
 						} else {
 							alert("글쓰기 실패");
 						}
 						
-						}
 						
 					}
-					, error:function() {
-					alert("메모 작성 에러");
-					}
-						
-				});
 
-				// 파일에 대한 유효성 검사
-				if(file.files.length = 0) {
-					alert("파일을 선택해 주세요");
-					return ;
-				}
+					, erroe:function() {
+						
+						alert("글쓰기 작성 에러");
+					}	
+
+					
+					
+				});
+				
+
+			
 
 				
 				

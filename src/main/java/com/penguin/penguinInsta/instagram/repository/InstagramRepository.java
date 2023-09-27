@@ -9,7 +9,7 @@ import com.penguin.penguinInsta.instagram.domain.User;
 
 @Repository
 public interface InstagramRepository extends JpaRepository<User, Integer> {
-
+//jpa
 	//SELECT count(1) ... WHERE `loginId` = #{loginId}
 	public int countByLoginId(String loginId);
 	
