@@ -1,5 +1,6 @@
 package com.penguin.penguinInsta.comment.repository;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
