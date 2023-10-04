@@ -19,30 +19,30 @@ public class CommentRestController {
 	private CommentService commentService;
 	
 	
-	@PostMapping("/post/comment/ceate")
-	public Map<String, String> createComment(
-			@RequestParam("postId") int postId
-			, @RequestParam("content") String content
-			, HttpSession session) {
+//	@PostMapping("/post/comment/ceate")
+//	public Map<String, String> createComment(
+//			@RequestParam("postId") int postId
+//			, @RequestParam("content") String content
+//			, HttpSession session) {
+//		
+//		int userId = (Integer)session.getAttribute("userId");
+//		int count = commentService.addComment(postId, userId, content);
+//		
+//		
+//		Map<String, String> resultMap = new HashMap<>();
+//		
+//			if(count == 1) {
+//				resultMap.put("result", "success");
+//			} else {
+//				resultMap.put("result", "fail");
+//			}
+//			
+//			return resultMap;
+//		}
+//		
 		
-		int userId = (Integer)session.getAttribute("userId");
-		int count = commentService.addComment(postId, userId, content);
 		
 		
-		Map<String, String> resultMap = new HashMap<>();
-		
-			if(count == 1) {
-				resultMap.put("result", "success");
-			} else {
-				resultMap.put("result", "fail");
-			}
-			
-			return resultMap;
-		}
-		
-		
-		
-		
-	}
+	
 	
 }

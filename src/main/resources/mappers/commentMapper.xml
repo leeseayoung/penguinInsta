@@ -7,7 +7,7 @@
   <mapper namespace="com.penguin.penguinInsta.comment.repository.CommentRepository">
   
     	<!-- 댓글 추가 기능 -->
-	  	<insert id="insertComment" parmeterType="map">
+	  	<insert id="insertComment" parameterType="map">
 	  		INSERT INTO 
 	  				`comment`
 	  			(

@@ -9,7 +9,7 @@ public interface CommentRepository {
 	public int insertComment(
 			@Param("userId")int userId
 			, @Param("postId") int postId
-			, @Param("content") String content)
+			, @Param("content") String content);
 	
 	
 }
