@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.penguin.penguinInsta.common.FileManager;
 import com.penguin.penguinInsta.instagram.domain.User;
 import com.penguin.penguinInsta.instagram.service.InstagramService;
+import com.penguin.penguinInsta.like.service.LikeService;
 import com.penguin.penguinInsta.mamo.domain.Post;
 import com.penguin.penguinInsta.mamo.dto.PostDetail;
 import com.penguin.penguinInsta.mamo.repository.PostRepository;
@@ -25,6 +26,8 @@ public class PostService {
 	@Autowired
 	private InstagramService instagramService;
 	
+	@Autowired
+	private LikeService likeService;
 	
 	
 
@@ -64,6 +67,9 @@ public class PostService {
 //			user.getLoginId(); //jsp 이걸 쓸 기능
 //			PostDetail postDetail = new PostDetail;
 			
+			//좋아요 개수 조회
+			int likeCount = likeService.countLike(post.getId());
+			
 			
 			PostDetail postDetail = PostDetail.builder()
 									.id(post.getId())
@@ -71,6 +77,8 @@ public class PostService {
 									.content(post.getContent())
 									.imagePath(post.getImagePath())
 									.loginId(user.getLoginId())
+									.likecount(likeCount)
+									.isLike(false)
 									.build();		
 
 			postDetailList.add(postDetail);

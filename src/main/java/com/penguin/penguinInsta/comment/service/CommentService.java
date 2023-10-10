@@ -12,7 +12,7 @@ public class CommentService {
 	private CommentRepository commentRepository;
 
 	//댓글 기능 추가
-	public int addComment(int postId, int userId, String content) {
+	public int addComment(int userId, int postId, String content) {
 		return commentRepository.insertComment(userId, postId, content);
 		
 	}

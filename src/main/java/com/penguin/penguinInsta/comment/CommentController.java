@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CommentController {
 
 	
-	@GetMapping("/comment/create")
-	public String createComment() {
-		
-		
-	}
-	
+//	@GetMapping("/comment/create")
+//	public String createComment() {
+//		
+//		
+//	}
+//	
 	
 	
 }

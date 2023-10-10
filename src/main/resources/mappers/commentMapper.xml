@@ -12,16 +12,16 @@
 	  				`comment`
 	  			(
 	  			
-		  			`postId`
-		  			,`userId`
-					, `content`
+		  			`userId`
+		  			,`postId`
+					,`content`
 					
 							
 	  			)
 	  			VALUE
 	  			(
-	  				#{postId}
-	  				, #{userId}
+	  				#{userId}
+	  				, #{postId}
 	  				, #{content}
 	  			
 	  				

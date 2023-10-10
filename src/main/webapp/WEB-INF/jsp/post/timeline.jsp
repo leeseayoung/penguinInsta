@@ -49,8 +49,8 @@
 								<img width="100%" src="${post.imagePath}">
 							</div>
 							<div class="p-2">
-								<i class="bi bi-heart"></i>
-								좋아요11개
+								<i class="bi bi-heart like-Icon" data-post-id="${post.id}"></i>
+								좋아요 ${post.likecount}개
 							</div>
 						
 							<div class="p-2">
@@ -64,8 +64,8 @@
 									<div class="pl-2"><b>pdjkkh12</b> 진짜 귀엽다!</div>
 									<div class="pl-2"><b>asd123</b> 새가!</div>
 								<div class="d-flex">
-									<input type="text" class="form-control" id="textInput">
-									<button type="button" class="btn btn-info" >게시</button>
+									<input type="text" class="form-control" id="commentInput${post.id}">
+									<button type="button" class="btn btn-info comment-btn" data-post-id="${post.id}">게시</button>
 								</div>
 								
 								
@@ -99,6 +99,63 @@
 	
 	<script>
 		$(document).ready(function() {
+			
+			
+			$(".comment-btn").on("click", function () {
+				
+				let postId = $(this).data("post-id");
+				let comment = $("#commentInput"+ postId).val();				
+				
+				$.ajax({
+					type:"post"
+					, url:"/post/comment/create"
+					, data:{"postId":postId, "content":comment}
+					, success:function(data) {
+						
+						if(data.result== "success") {
+							location.reload();
+						} else {
+							alert("댓글 작성 실패");
+						}
+					}
+					
+					, error:function() {
+						alert("댓글 작겅 에러!");
+					}
+				});
+				
+				
+			});
+			
+			
+			$(".like-Icon").on("click", function() {
+				
+				let postId = $(this).data("post-id");
+				
+				$.ajax({
+					type:"post"
+					, url:"/post/like"
+					, data:{"postId":postId}
+					, success:function(data) {
+						
+						if(data.result == "success") {
+							location.reload();
+						} else {
+							
+							alert("좋아요 실패");
+						}			
+					}
+					
+					, error:function() {
+						alert("좋아요 에러!!");
+					}
+					
+					
+				});
+				
+			});
+			
+			
 			$("#addBtn").on("click", function() {
 				let content = $("#contentInput").val();
 				let file = $("#fileInput")[0];

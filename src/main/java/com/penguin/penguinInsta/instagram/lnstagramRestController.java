@@ -47,6 +47,7 @@ public class lnstagramRestController {
 			// 세션에 사용자 정보가 저장된 경우 로그인된 상태로 파악
 			session.setAttribute("userId", user.getId());
 			session.setAttribute("userName",user.getName());
+			//session.setAttribute("userlogin",user.getLoginId());
 			
 			resultMap.put("result", "success");
 			
