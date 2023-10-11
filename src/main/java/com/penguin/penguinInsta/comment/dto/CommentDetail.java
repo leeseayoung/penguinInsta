@@ -11,7 +11,8 @@ public class CommentDetail {
 
 	private int id;
 	private int userId;
-	private int postId;
+//	private int postId;
 	private String content;
+	private String loginId;
 	
 }

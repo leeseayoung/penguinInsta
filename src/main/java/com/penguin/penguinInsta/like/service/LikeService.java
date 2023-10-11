@@ -21,4 +21,19 @@ public class LikeService {
 	}
 	
 	
+	//
+	public boolean isLike(int postId, int userId) {
+		 int count = likeRepository.selectCountLikeByUserId(postId, userId);
+		 
+		 if(count == 0) {
+			 return false;
+		 } else {
+			 return true;
+		 }
+	
+//		 return != 0;
+		 
+	}
+	
+	
 }

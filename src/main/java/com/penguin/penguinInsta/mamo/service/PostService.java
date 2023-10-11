@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.penguin.penguinInsta.comment.dto.CommentDetail;
+import com.penguin.penguinInsta.comment.service.CommentService;
 import com.penguin.penguinInsta.common.FileManager;
 import com.penguin.penguinInsta.instagram.domain.User;
 import com.penguin.penguinInsta.instagram.service.InstagramService;
@@ -29,9 +31,8 @@ public class PostService {
 	@Autowired
 	private LikeService likeService;
 	
-	
-
-	
+	@Autowired
+	private CommentService commentService;
 	
 	
 	
@@ -51,7 +52,7 @@ public class PostService {
 	
 
 	// 이거
-	public List<PostDetail> getPostList() {
+	public List<PostDetail> getPostList(int loginUserId) {
 		
 		
 		
@@ -70,6 +71,15 @@ public class PostService {
 			//좋아요 개수 조회
 			int likeCount = likeService.countLike(post.getId());
 			
+			//좋아요 색갈
+			boolean isLike = likeService.isLike(post.getId(), loginUserId);
+			
+			
+			//댓글
+			List<CommentDetail> commentList = commentService.getCommentList(post.getId());
+			
+			//
+			
 			
 			PostDetail postDetail = PostDetail.builder()
 									.id(post.getId())
@@ -78,7 +88,8 @@ public class PostService {
 									.imagePath(post.getImagePath())
 									.loginId(user.getLoginId())
 									.likecount(likeCount)
-									.isLike(false)
+									.isLike(isLike)
+									.commentList(commentList)
 									.build();		
 
 			postDetailList.add(postDetail);

@@ -18,7 +18,9 @@ public class PostDetail {
 	private String imagePath;
 	private int likecount;
 	private boolean isLike;
-//	private List<Comment> commentList;
-	//<CommentDetail>
+	private List<CommentDetail> commentList;
+
+	
+
 	
 }
