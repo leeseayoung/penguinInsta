@@ -35,6 +35,14 @@ public class PostService {
 	private CommentService commentService;
 	
 	
+	//삭제 기능
+	public int deletePenguinInsat(int postId) {
+		return postRepository.deleteInsta(postId);
+	}
+	
+	
+	
+	
 	
 	
 	

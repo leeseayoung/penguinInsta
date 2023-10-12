@@ -12,6 +12,18 @@ import com.penguin.penguinInsta.mamo.domain.Post;
 @Repository
 public interface PostRepository {
 
+	
+	
+	//삭제 
+	public int deleteInsta(@Param("postId")int postId);
+	
+	
+	
+	
+	
+	
+	
+	
 	//타이틀업음
 	public int insertPost(
 			@Param("userId")int userId
