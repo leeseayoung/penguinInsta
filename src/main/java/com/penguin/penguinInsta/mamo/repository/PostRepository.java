@@ -14,6 +14,11 @@ public interface PostRepository {
 
 	
 	
+	//게시글 정보를 모두 모을려고
+	public Post selectPost(@Param("postId")int postId);
+	
+	
+	
 	//삭제 
 	public int deleteInsta(@Param("postId")int postId);
 	

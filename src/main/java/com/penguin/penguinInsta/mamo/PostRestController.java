@@ -24,12 +24,14 @@ public class PostRestController {
 	private PostService postService;
 	
 	
-	
+	//삭제 기능 1
 	@DeleteMapping("/delete")
 	public Map<String, String> deleteInsta(
-			@RequestParam("postId")int postId) {
+			@RequestParam("postId")int postId
+			, HttpSession session) {
 		
-		int count = postService.deletePenguinInsat(postId);
+		int userId = (Integer)session.getAttribute("userId");
+		int count = postService.deletePenguinInsta(postId, userId);
 		
 		Map<String, String> resultMap = new HashMap<>();
 		
@@ -43,13 +45,7 @@ public class PostRestController {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	

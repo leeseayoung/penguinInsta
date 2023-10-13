@@ -52,7 +52,19 @@ public class CommentService {
 	    return commentDetailList;
 	    
 	}
-
+		//댓글 삭제 기능
+	public int deleteCommentByPostId(int postId) {
+		
+		return commentRepository.deleteCommentByPostId(postId);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

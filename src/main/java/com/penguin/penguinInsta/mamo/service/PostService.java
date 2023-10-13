@@ -35,8 +35,29 @@ public class PostService {
 	private CommentService commentService;
 	
 	
-	//삭제 기능
-	public int deletePenguinInsat(int postId) {
+	//삭제 기능2									//삭제 할때 아무나 삭제 못하게
+	public int deletePenguinInsta(int postId, int userId) {
+		
+		//첨부된 파일 삭제
+		Post post = postRepository.selectPost(postId);
+		
+		if(post.getUserId() != userId) {
+			return 0;
+		}
+		
+		
+		FileManager.removeFile(post.getImagePath());
+		
+		
+		//댓글 삭제
+		commentService.deleteCommentByPostId(postId);
+
+		//좋아요 삭제 
+		likeService.deleteLikeByPostId(postId);
+		
+		
+		
+		
 		return postRepository.deleteInsta(postId);
 	}
 	

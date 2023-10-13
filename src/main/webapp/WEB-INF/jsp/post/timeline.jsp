@@ -41,8 +41,10 @@
 						<div class="card">
 							<div class="d-flex justify-content-between p-2">
 								<div>${post.loginId}</div>
-								<i class="bi bi-three-dots-vertical" data-toggle="modal" data-target="#exampleModal"></i>
-							
+									<%-- 로그인한 사용자의 게시글에만 more-btn 노출!  == 도 가능하지만 eq을 주로 쓰는걸 추천 --%>
+									<c:if test="${post.userId eq userId}">
+								<i class="bi bi-three-dots-vertical more-btn" data-post-id="${post.id}" data-toggle="modal" data-target="#exampleModal"></i>
+								</c:if>
 							</div>
 							
 							<div>
@@ -51,10 +53,10 @@
 							<div class="p-2">
 							 	<c:choose>
 							 		<c:when test="${post.like}">
-							 			<i class="bi bi-heart-fill text-danger"></i>
+							 			<i class="bi bi-heart-fill text-danger unlike-icon" data-post-id="${post.id}"></i>
 							 		</c:when>
 							 		<c:otherwise>
-										<i class="bi bi-heart like-Icon"></i>
+										<i class="bi bi-heart like-Icon" data-post-id="${post.id}"></i>
 							 		
 							 		</c:otherwise>
 							 	</c:choose> 
@@ -109,7 +111,7 @@
 			  <div class="modal-dialog" role="document">
 			    <div class="modal-content">
 			      <div class="modal-header">
-			        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+			       
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			          <span aria-hidden="true">&times;</span>
 			        </button>
@@ -119,7 +121,7 @@
 			      </div>
 			      <div class="modal-footer">
 			        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-			        <button type="button" class="btn btn-danger" id="deleteBtn" data-post-id="${post.id}">삭제하기</button>
+			        <button type="button" class="btn btn-danger" id="deleteBtn" data-post-id="">삭제하기</button>
 			      </div>
 			    </div>
 			  </div>
@@ -134,10 +136,71 @@
 	
 	<script>
 		$(document).ready(function() {
+		
+			
+			
+			$(".unlike-icon").on("click", function () {
+				let postId = $(this).data("post-id");
+				
+				$.ajax({
+					
+					type:"delete"
+					, url:"/post/unlike"
+					, data:{"postId":postId}
+					, success:function(data) {
+						if(data.result == "success") {
+							location.reload();
+						} else {
+							alert("좋아요 취소 실패!")
+						}
+						
+					}
+					, error:function() {
+						alert("좋아요 취소 에러!")
+					}
+						
+					
+				
+				});
+				
+				
+			});
+			
+			$(".more-btn").on("click", function () {
+				// 모달에 있는 삭제하기 링크 태그에 postId를 data 속성에 추가한다.
+				// data-post-id에 값을 넣어봄
+				let postId = $(this).data("post-id");	
+				
+				$("#deleteBtn").data("post-id", postId);
+					
+				});
+			
+			
+			
+			
 			
 			$("#deleteBtn").on("click", function () {
+				let postId = $(this).data("post-id");
 				
+				$.ajax({
+					
+					type:"delete"
+					, url:"/post/delete"
+					, data:{"postId":postId}
+					, success:function(data) {
+					
+					if(data.result== "success") {
+						location.reload();
+					} else {
+						alert("게시글 삭제 실패");
+					}
+				}
 				
+				, error:function() {
+					alert("게시글 삭제 에러!");
+				}
+				
+				});
 				
 			});
 			

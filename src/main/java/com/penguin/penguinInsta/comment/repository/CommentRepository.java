@@ -21,6 +21,9 @@ public interface CommentRepository {
 	
 	
 
+	//댓글 삭제
+	public int deleteCommentByPostId(@Param("postId")int postId);
+	
 	
 	
 }

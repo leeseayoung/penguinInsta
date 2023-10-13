@@ -11,6 +11,16 @@ public class LikeService {
 	@Autowired
 	private LikeRepository likeRepository;
 	
+	
+	//좋아요 삭제
+	public int deleteLikeByPostIdAndUserId(int postId, int userId) {
+		return likeRepository.deleteLikeByPostIdAndUserId(postId, userId);
+	}
+	
+	
+	
+	
+	
 	public int addlike(int userId, int postId) {
 		return likeRepository.insertLike(userId, postId);
 	}
@@ -21,7 +31,7 @@ public class LikeService {
 	}
 	
 	
-	//
+	
 	public boolean isLike(int postId, int userId) {
 		 int count = likeRepository.selectCountLikeByUserId(postId, userId);
 		 
@@ -33,6 +43,12 @@ public class LikeService {
 	
 //		 return != 0;
 		 
+	}
+	
+	
+	//좋아요 삭제
+	public int deleteLikeByPostId(int postId) {
+		return likeRepository.deleteLikeByPostId(postId);
 	}
 	
 	

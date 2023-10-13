@@ -74,9 +74,31 @@
 	  </select>
   
   
-  
-  
-  
+  	<delete id="deleteInsta" parameterType="int">
+  		DELETE FROM
+  				`post`
+  		WHERE
+				`id` = #{postId}
+	  	
+  	</delete>
+  	
+  	
+  	  <!-- title 에러 -->
+	  <select id="selectPost" parameterType="int" resultType="com.penguin.penguinInsta.mamo.domain.Post">
+	  	SELECT
+ 			 	`id`
+ 			 	, `userId`
+				
+				, `content`
+				, `imagePath`
+				, `createdAt`
+				, `updatedAt`
+			FROM	 
+  				`post`
+  			WHERE
+  					`id` = #{postId}
+	  
+	  </select>
   
   
   
