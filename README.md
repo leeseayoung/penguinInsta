@@ -8,7 +8,7 @@
 **2023.09.21 ~ 2023.10.13 (3주)**
 
 ## 기획, 설계 문서
-- 기획 (Ovenapp) : https://ovenapp.io/project/SQOrKk3crzXtAIteh0ql4kbwnsWTeSQy#Cyrpt
+- 기획 (Ovenapp) : https://ovenapp.io/project/SQOrKk3crzXtAIteh0ql4kbwnsWTeSQy#yRPWO
 - 설계 (Google spread sheet) : https://docs.google.com/spreadsheets/d/11UMA0jID0Az5mhoW_fwTuC7P2mZBkYUGjdkxDaRfD-I/edit#gid=0
 
 ## 포트폴리오
